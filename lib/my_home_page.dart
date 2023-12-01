@@ -21,54 +21,44 @@ class _MyHomePageState extends State<MyHomePage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: const Icon(
-            Icons.menu,
-            size: 35,
+          title: Row(
+            children: [
+              Text("Manoj"),
+              const SizedBox(width: 8),
+              Icon(Icons.abc_sharp),
+              Spacer(),
+              Icon(Icons.shopping_bag, size: 30),
+              const SizedBox(width: 16),
+              Icon(Icons.search, size: 30),
+            ],
           ),
-          title: Text(
-            'Home',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 25,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          backgroundColor: Colors.yellow,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
+          backgroundColor: const Color.fromARGB(255, 192, 163, 163),
+        ),
+        body: Container(
+          child: Column( // Wrap both rows in a Column
+            children: [
+              Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Icon(
-                      Icons.shop_2_rounded,
-                      size: 30,
-                    ),
+                  SizedBox(height: 100,),
+                  Padding(padding: EdgeInsets.only(left: 40)),
+                  Expanded(
+                    flex: 2,
+                    child: SearchBar(),
                   ),
-                  Icon(
-                    Icons.search,
-                    size: 30,
-                  ),
-                  // Add other widgets here if needed
+                  Padding(padding: EdgeInsets.only(right: 40)),
                 ],
               ),
-            ),
-          ],
-          systemOverlayStyle: SystemUiOverlayStyle.dark,
-        ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              'hello',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 50,
-                fontWeight: FontWeight.w600,
+              Row(
+                children: [
+                  
+                  SizedBox(height: 30,),
+                  Padding(padding: EdgeInsets.only(left: 140)),
+                  Text("Hello Everyone", style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                  
+                ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
