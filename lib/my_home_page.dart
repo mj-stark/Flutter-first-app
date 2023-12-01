@@ -13,52 +13,109 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       // Status bar color
-      statusBarColor: Colors.red,
+      statusBarColor: Colors.white,
     ));
 
     return MaterialApp(
-      title: 'Flutter layout demo',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Row(
-            children: [
-              Text("Manoj"),
-              const SizedBox(width: 8),
-              Icon(Icons.abc_sharp),
-              Spacer(),
-              Icon(Icons.shopping_bag, size: 30),
-              const SizedBox(width: 16),
-              Icon(Icons.search, size: 30),
-            ],
-          ),
-          backgroundColor: const Color.fromARGB(255, 192, 163, 163),
-        ),
-        body: Container(
-          child: Column( // Wrap both rows in a Column
-            children: [
-              Row(
+        body: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 25, horizontal: 25),
+              height: 150,
+              decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 35, 66, 92),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  SizedBox(height: 100,),
-                  Padding(padding: EdgeInsets.only(left: 40)),
-                  Expanded(
-                    flex: 2,
-                    child: SearchBar(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Hello",
+                        style: TextStyle(
+                            fontSize: 26,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        "Your name",
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.white),
+                      )
+                    ],
                   ),
-                  Padding(padding: EdgeInsets.only(right: 40)),
+                  Spacer(),
+                  Icon(
+                    Icons.search,
+                    size: 35,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.notification_add,
+                    size: 35,
+                    color: Colors.white,
+                  )
                 ],
               ),
-              Row(
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                Padding(padding: EdgeInsets.only(left: 20)),
+                Text(
+                  'Recently Added',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  
-                  SizedBox(height: 30,),
-                  Padding(padding: EdgeInsets.only(left: 140)),
-                  Text("Hello Everyone", style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
-                  
+                  Image.asset(
+                                      'assets/images/Screenshot 2023-12-01 163809.png',
+                                      fit: BoxFit.cover,
+                                      width: 80,
+                                      height: 120,
+                                    ),
+                  Image.asset(
+                                      'assets/images/Screenshot 2023-12-01 163826.png',
+                                      fit: BoxFit.cover,
+                                      width: 80,
+                                      height: 120,
+                                    ),
+                  Image.asset(
+                                      'assets/images/Screenshot 2023-12-01 163833.png',
+                                      fit: BoxFit.cover,
+                                      width: 80,
+                                      height: 120,
+                                    ),
+                  Image.asset(
+                                      'assets/images/Screenshot 2023-12-01 163843.png',
+                                      fit: BoxFit.cover,
+                                      width: 80,
+                                      height: 120,
+                                    ),
                 ],
               ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
