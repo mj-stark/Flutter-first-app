@@ -13,111 +13,127 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       // Status bar color
-      statusBarColor: Colors.white,
+      statusBarColor: const Color.fromARGB(255, 255, 255, 255),
     ));
 
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Column(
+        title: 'Flutter layout demo',
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 25, horizontal: 25),
-              height: 150,
+              height: 1000,
+              width: 500,
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 35, 66, 92),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.end,
+                  gradient: LinearGradient(colors: [
+                Colors.redAccent,
+                Colors.lightBlueAccent,
+              ])),
+              padding: EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        "Hello",
-                        style: TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        "Your name",
-                        style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.white),
-                      )
-                    ],
+                  Padding(padding: EdgeInsets.only(left: 150, top: 100)),
+                  Text("Hello.",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  Text("Welcome !",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold)),
+                  Container(
+                    child: Column(
+                      children: [
+                        Padding(padding: EdgeInsets.only(left: 50)),
+                        SizedBox(height: 120),
+                      ],
+                    ),
                   ),
-                  Spacer(),
-                  Icon(
-                    Icons.search,
-                    size: 35,
-                    color: Colors.white,
-                  ),
-                  Icon(
-                    Icons.notification_add,
-                    size: 35,
-                    color: Colors.white,
-                  )
                 ],
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              children: [
-                Padding(padding: EdgeInsets.only(left: 20)),
-                Text(
-                  'Recently Added',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset(
-                                      'assets/images/Screenshot 2023-12-01 163809.png',
-                                      fit: BoxFit.cover,
-                                      width: 80,
-                                      height: 120,
-                                    ),
-                  Image.asset(
-                                      'assets/images/Screenshot 2023-12-01 163826.png',
-                                      fit: BoxFit.cover,
-                                      width: 80,
-                                      height: 120,
-                                    ),
-                  Image.asset(
-                                      'assets/images/Screenshot 2023-12-01 163833.png',
-                                      fit: BoxFit.cover,
-                                      width: 80,
-                                      height: 120,
-                                    ),
-                  Image.asset(
-                                      'assets/images/Screenshot 2023-12-01 163843.png',
-                                      fit: BoxFit.cover,
-                                      width: 80,
-                                      height: 120,
-                                    ),
-                ],
+              padding: EdgeInsets.only(top: 270, left: 20,right: 20),
+              child: Container(
+                height: 400,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(30),border: Border.all(width: 1)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(padding: EdgeInsets.only(top: 50, left: 0)),
+                    Padding(
+                      padding: EdgeInsets.only(left: 20, right: 20),
+                      child: Column(
+                        children: [
+                          TextField(
+                            decoration: InputDecoration(
+                                suffixIcon: Icon(Icons.check),
+                                label: Text(
+                                  "Username",
+                                  style: TextStyle(fontSize: 20),
+                                )),
+                          ),
+                          TextField(
+                            decoration: InputDecoration(
+                                suffixIcon: Icon(Icons.visibility_off),
+                                label: Text(
+                                  "Password",
+                                  style: TextStyle(fontSize: 20),
+                                )),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(padding: EdgeInsets.only(top:10, right: 20),child: Text("Forget Password?",style: TextStyle(fontWeight: FontWeight.bold),),
+                      ),
+                      
+                      ],),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Padding(padding: EdgeInsets.only(top: 20),
+                    child: Row(children: [
+                      Container(
+                        height: 50,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(colors: [
+                            Colors.redAccent,
+                            Colors.blueAccent,
+                          ]),
+                          borderRadius: BorderRadius.circular(50)
+                        ),
+                        child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Text("Sign In",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 20),)],),
+                      )
+                    ],)
+                    )
+                   ],
+                  ),
+                  Row(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(padding: EdgeInsets.only(top: 75),
+                    child:Text("Don't have a account?") ,),
+                  ],),
+                  Padding(padding: EdgeInsets.only(right: 0),child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                   children: [Text('Create a account',style: TextStyle(fontWeight: FontWeight.bold),)],),)
+                  ]
+                ),
               ),
-            )
+            ),
           ],
-        ),
-      ),
-    );
+        )));
   }
 }
+
+// Placeholder for your SearchBar widget
+
