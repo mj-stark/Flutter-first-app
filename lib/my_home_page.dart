@@ -135,5 +135,4 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-// Placeholder for your SearchBar widget
 
